@@ -1,4 +1,4 @@
-package src.main.java.com.younuschains;
+package com.younuschains;
 import com.google.gson.GsonBuilder;
 
 public class App {

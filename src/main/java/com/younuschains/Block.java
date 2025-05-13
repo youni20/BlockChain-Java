@@ -1,4 +1,4 @@
-package src.main.java.com.younuschains;
+package com.younuschains;
 import java.util.Date;
 
 public class Block{
