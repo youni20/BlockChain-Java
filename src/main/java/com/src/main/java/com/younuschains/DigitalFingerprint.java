@@ -1,4 +1,4 @@
-package com.younuschains;
+package com.src.main.java.com.younuschains;
 import java.security.MessageDigest;
 
 public class DigitalFingerprint{

@@ -1,4 +1,4 @@
-package com.younuschains;
+package com.src.main.java.com.younuschains;
 import java.util.Date;
 
 public class Block{
@@ -6,6 +6,7 @@ public class Block{
     private String previousHash;
     private String data;
     private long timeStamp;
+    private int nonce;
 
     public Block(String data, String previousHash){
         this.previousHash = previousHash;
@@ -18,9 +19,20 @@ public class Block{
         String calculatedHash = DigitalFingerprint.applySha256(
             previousHash + 
             Long.toString(timeStamp) + 
+            Integer.toString(nonce) + 
             data
         );
         return calculatedHash;
+    }
+
+
+    public void mineBlock(int difficulty){
+        String target = new String(new char[difficulty]).replace("\0", "0");
+        while(!hash.substring(0, difficulty).equals(target)){
+            nonce ++;
+            hash = calculateHash();
+        }
+        System.out.println("Block mined!! : " + hash);
     }
 
 
@@ -56,6 +68,6 @@ public class Block{
 
     public void setTimeStamp(long timeStamp){
         this.timeStamp = timeStamp;
-    } 
+    }
 
 }
