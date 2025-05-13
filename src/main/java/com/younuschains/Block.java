@@ -7,7 +7,7 @@ public class Block{
     private String data;
     private long timeStamp;
 
-    public Block(String previousHash, String data){
+    public Block(String data, String previousHash){
         this.previousHash = previousHash;
         this.data = data;
         this.timeStamp = new Date().getTime();

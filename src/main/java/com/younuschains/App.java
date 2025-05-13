@@ -1,15 +1,16 @@
 package com.younuschains;
 import com.google.gson.GsonBuilder;
+import java.util.ArrayList;
 
 public class App {
+
+    public static ArrayList<Block> blockChain = new ArrayList<Block>();
     public static void main(String[] args){
-        Block block1 = new Block("The first block", "0");
-        System.out.println("Block 1 hash: " + block1.getHash());
-
-        Block block2 = new Block("The second block", block1.getHash());
-        System.out.println("Block 2 hash: " + block2.getHash());
-
-        Block block3 = new Block("The third block", block2.getHash());
-        System.out.println("Block 3 hash: " + block3.getHash());
+        blockChain.add(new Block("The First Block!", "0")); 
+        blockChain.add(new Block("This is the Second Block", blockChain.get(blockChain.size()-1).getHash()));
+        blockChain.add(new Block("This is the third Block", blockChain.get(blockChain.size()-1).getHash()));
+        
+        String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockChain);
+        System.out.println(blockchainJson);
     }    
 }
