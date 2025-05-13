@@ -1,3 +1,6 @@
+package src.main.java.com.younuschains;
+import com.google.gson.GsonBuilder;
+
 public class App {
     public static void main(String[] args){
         Block block1 = new Block("The first block", "0");
